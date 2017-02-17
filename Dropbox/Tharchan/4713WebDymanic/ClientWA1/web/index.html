@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" language="javascript">
+            function checkform()
+            {
+                //boolean variables for checking the form
+                originalvalueOK = false;
+                salvagevalueOK = false;
+                lifetimeOK = false
+                formOK = false;
+                
+                //validating the text boxes: not empty and numeric values
+                originalvalueinput = document.depform.originalvalue.value;
+                salvagevalueinput = document.depform.salvagevalue.value;
+                lifetimeinput = document.depform.lifetime.value;
+                
+                if (originalvalueinput != "" && !isNaN(originalvalueinput)) originalvalueOK = true;
+                if (salvagevalueinput != "" && !isNaN(salvagevalueinput)) salvagevalueOK = true;
+                if (lifetimeinput != "" && !isNaN(lifetimeinput)) lifetimeOK = true;
+                
+                formOK = originalvalueOK && salvagevalueOK && lifetimeOK;
+                
+                if (formOK == false)
+                {
+                    alert("Please enter a numeric value");
+                    return formOK;
+                }
+                else
+                {
+                    return formOK;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Depreciation</h2>
+        <form name="depform" action="DepreciationServlet" onsubmit="return checkform();">
+            Original Value: <input type="text" name="originalvalue"/><br/>
+            Salvage Value: <input type="text" name="salvagevalue"/><br/>
+            Asset Lifetime: <input type="text" name="lifetime"/><br/>
+            <input type="submit" value="Calc"/>
+        </form>
+    </body>
+</html>

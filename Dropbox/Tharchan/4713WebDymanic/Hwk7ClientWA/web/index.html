@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hwk7</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            function checkform()
+            {
+                zipcodeOK = false;
+                formOK = false;
+                
+                //reading the value from the textbox
+                inputzipcode = document.hwk7Form.zipcodeTxtBx.value;
+                inputzipcode = inputzipcode.trim();
+                
+                //zipcode must not be null and must be a number and have 5 digits
+                if (inputzipcode != "" && !isNaN(inputzipcode) && inputzipcode.length == 5)
+                                 zipcodeOK = true;
+                   
+                formOK = (zipcodeOK);
+                
+                if (formOK == true) return true;
+                else
+                {
+                    alert("Please enter a valid zipcode");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>NYC Borough</h2>
+        <form name="hwk7Form" action="Hwk7Servlet" onsubmit="return checkform()">
+            Zipcode: <input type="text" name="zipcodeTxtBx"/><br/>
+            <input type="submit" value="Submit"/>   
+        </form>
+    </body>
+</html>

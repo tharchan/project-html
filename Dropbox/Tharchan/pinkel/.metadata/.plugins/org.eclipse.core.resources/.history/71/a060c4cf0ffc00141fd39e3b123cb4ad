@@ -1,0 +1,5 @@
+
+public class UserAccount {
+	private userAccountID, userName, password, email;
+
+}

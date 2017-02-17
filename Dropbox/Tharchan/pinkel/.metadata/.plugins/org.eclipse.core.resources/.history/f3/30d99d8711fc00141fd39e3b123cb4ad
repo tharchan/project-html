@@ -1,0 +1,60 @@
+
+public class UserAccount {
+	private String userAccountID;
+	private String userName;
+	private String password;
+	private String email;
+	
+	private UserAccount(){
+		this.userName="";
+		this.password="";
+		this. email="";
+	}
+	
+	private UserAccount(String U, String P, String E){
+		this.userName=U;
+		this.password=P;
+		this.email=E;
+	}
+	
+	public void setUserAccountId(String id){
+		userAccountID = id;
+	}
+	public void setUserName(String name){
+		this.userName=name;
+	}
+	public void setPassowrd(String pass){
+		this.password=pass;
+	}
+	public void setEmail(String em){
+		this.email=em;
+	}
+	
+	public String getUserAccountId(){
+		return userAccountID;
+	}
+	public String getUserName(){
+		return userName;
+	}
+	public String getPassword(){
+		return password;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public static UserAccount getInstance(){
+		UserAccount objAccount1= new UserAccount();
+		return objAccount1;
+	}
+	public static UserAccount getInstance( String U, String P, String E){
+		UserAccount objAccount1=new UserAccount( U,P,E);
+		return objAccount1;
+	}
+	public boolean authenticate( String U, String P){		
+		if ( this.username.equals(U) && this.password.equals(P)){
+			return true;
+		}
+		return false;
+	}
+}
+

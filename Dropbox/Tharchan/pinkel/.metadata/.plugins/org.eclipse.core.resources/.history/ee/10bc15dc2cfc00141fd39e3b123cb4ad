@@ -1,0 +1,7 @@
+public class test {
+	public static void main(String[] args){
+		Employee a = new Employee("414-44-2233","Pinkel","Gurung","06/03/1985","Elmhurst","646-506-4454","pinkelgrg@hotmail.com","Software");
+		
+		a.print();
+	}
+}

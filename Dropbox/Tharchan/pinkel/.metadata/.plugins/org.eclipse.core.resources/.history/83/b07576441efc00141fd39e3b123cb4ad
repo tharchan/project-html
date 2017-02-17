@@ -1,0 +1,32 @@
+
+public class Customer extends Person {
+	private String idNumber;
+	
+	public void setidNumber(String id){
+		this.idNumber=id;
+	}
+	public String getIdNumber(){
+		return this.idNumber;
+	}
+	
+	
+	public Customer() {
+		super();
+		this.idNumber="";
+		super.setCount(super.getCount()+1);
+	}
+	
+	public Customer(String S,String F,String L,String D,String A,String P,String E,String id) {
+		super(S, F, L, D, A, P, E);
+		this.idNumber=id;
+		super.setCount(super.getCount()+1);
+	}
+	
+	
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

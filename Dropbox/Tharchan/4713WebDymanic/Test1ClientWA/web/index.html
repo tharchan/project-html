@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Test1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" language="javascript">
+            function checkform()
+            {
+                nameOK = false;
+                gradyearOK = false;
+                formOK = false;
+                
+                //reading the inputs
+                inputname = document.test1form.nameTxtBx.value;
+                inputgradyear = document.test1form.gradyearTxtBx.value;
+                
+                //trimming the inputs
+                inputname = inputname.trim();
+                inputgradyear = inputgradyear.trim();
+                
+                //ensuring inputname is not blank(null) and numeric
+                //and it does not contain a number in it
+                hasNumber = /\d/;
+                if (inputname != "" && isNaN(inputname)&& !hasNumber.test(inputname)) nameOK = true;
+                
+                //ensuring inputgradyear is not blank(null) and is numeric
+                if (inputgradyear != "" && !isNaN(inputgradyear)) gradyearOK = true;
+                
+                //entire form
+                formOK = (nameOK) && (gradyearOK);
+                
+                if (formOK == true) return true;
+                else
+                {
+                    alert("Please enter valid inputs");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="test1form" action="Test1Servlet" onsubmit="return checkform()">
+            Name: <input type="text" name="nameTxtBx"/><br/>
+            Graduation Year: <input type="text" name="gradyearTxtBx"/><br/>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>

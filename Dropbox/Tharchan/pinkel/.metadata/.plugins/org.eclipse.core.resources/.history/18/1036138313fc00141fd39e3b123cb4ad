@@ -1,0 +1,22 @@
+
+public abstract class Person {
+	private String ssNumber, firstName, lastName, dateOfBirth,address, phone, email;
+	private int age;
+	private static int count=0;
+	
+	public Person(){
+		
+	}
+	public Person(String S,String F,String L,String D,String A,String P,String E){
+		this.ssNumber=S;
+		this.firstName=F;
+		this.lastName=L;
+		this.dateOfBirth=D;
+		this.address=A;
+		this.phone=P;
+		this.email=E;
+	}
+	public print(){
+		
+	}
+}

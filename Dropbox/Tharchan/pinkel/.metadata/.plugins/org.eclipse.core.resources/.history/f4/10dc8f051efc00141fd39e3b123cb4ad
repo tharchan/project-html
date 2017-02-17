@@ -1,0 +1,10 @@
+
+public class Customer extends Person {
+	private String idNumber;
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,138 @@
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+
+public class EmployeeList {
+	private int SIZE;
+	private HashMap<String, Employee> employeeList;
+	
+	public EmployeeList(){
+		employeeList= new HashMap<String, Employee>();
+	}
+	
+	public Employee search (String ssn){
+		if(employeeList.containsKey(ssn)){
+			return employeeList.get(ssn);
+		}
+		return null;
+	}
+	
+	public boolean add(String ssn, Employee e){
+		if(!employeeList.containsKey(ssn)){
+			employeeList.put(ssn, e);
+			return true;
+		}
+		return false;
+	}
+	public boolean add(String S,String F,String L,String D,String A,String P,String E,String job) {
+		if(!employeeList.containsKey(S)){
+			Employee e = new Employee( S, F, L, D, A, P, E, job);
+			employeeList.put(S, e);
+			return true;
+		}
+		return false;
+	}
+	public boolean edit(String ssn, Employee e){
+		if(employeeList.containsKey(ssn)){
+			employeeList.get(ssn).setAddress(e.getAddress());
+			employeeList.get(ssn).setDateOfBirth(e.getDateOfBirth());
+			employeeList.get(ssn).setEmail(e.getEmail());
+			employeeList.get(ssn).setFirstName(e.getFirstName());
+			employeeList.get(ssn).setJobTitle(e.getJobTitle());
+			employeeList.get(ssn).setLastName(e.getLastName());
+			employeeList.get(ssn).setPhone(e.getPhone());
+			return true;
+		}
+		return false;		
+	}
+	public boolean edit(String S,String F,String L,String D,String A,String P,String E,String job) {
+		if(!employeeList.containsKey(S)){
+			employeeList.get(S).setAddress(A);
+			employeeList.get(S).setDateOfBirth(D);
+			employeeList.get(S).setEmail(E);
+			employeeList.get(S).setFirstName(F);
+			employeeList.get(S).setJobTitle(job);
+			employeeList.get(S).setLastName(L);
+			employeeList.get(S).setPhone(P);
+			return true;
+		}
+		return false;
+	}
+	public boolean remove(String ssn){
+		if(employeeList.containsKey(ssn)){
+			employeeList.remove(ssn);
+			return true;
+		}
+		return false;
+	}
+	public boolean print(String ssn){
+		if(employeeList.containsKey(ssn)){
+			employeeList.get(ssn).print();
+			return true;
+		}
+		return false;
+	}
+	public void printAll(){
+		for(Entry<String, Employee> data : employeeList.entrySet()) {
+	        String key = data.getKey();		        
+	        employeeList.get(key).print();
+	    }
+	}
+	public void clear(){
+		employeeList.clear();
+	}
+	public void load(){
+		this.Database_Load();
+	}
+	public void save(){
+		this.Database_Save();
+	}	
+	protected void Database_Load(){
+		try{
+			File myFile = new File("EmployeeData.txt");
+			if(!myFile.exists()) {
+				myFile.createNewFile();				
+			}
+			FileInputStream fstream = new FileInputStream("EmployeeData.txt");
+
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			 while ((strLine = br.readLine()) != null)   {
+				 String[] input = strLine.split(",");				 
+				 Employee objEmployee = new Employee(input[0],input[1], input[2], input[3], input[4], input[5], input[6], input[7]);
+				 this.add(input[1], objEmployee);
+			 }
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
+		}
+	}
+	protected void Database_Save(){
+		try {
+			File file = new File("EmployeeData.txt");
+			if(!file.exists()) {
+				file.createNewFile();				
+			}
+			FileWriter fw = new FileWriter (file,true);		    
+		    PrintWriter outFile = new PrintWriter (fw);
+		    System.out.println(this.employeeList.size());
+		    for(Entry<String, Employee> data : employeeList.entrySet()) {
+		        String key = data.getKey();		        
+		        outFile.println(employeeList.get(key).getSSNumber()+","+employeeList.get(key).getFirstName()+","+employeeList.get(key).getSSNumber()+","+employeeList.get(key).getSSNumber()+","+employeeList.get(key).getSSNumber()+","+employeeList.get(key).getSSNumber()+","+employeeList.get(key).getSSNumber()+","+employeeList.get(key).getSSNumber());                     
+		    }
+		    outFile.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

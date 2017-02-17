@@ -1,0 +1,8 @@
+
+public abstract class Person {
+	private String ssNumber, firstName, lastName, dateOfBirth,address, phone, email;
+	private int age;
+	private static int count=0;
+	
+	
+}

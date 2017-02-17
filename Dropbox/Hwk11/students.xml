@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+   <students>
+      <student id="a01" list="c001,c002,c004">
+         <first>Beverly</first>
+         <last>Kaufmann</last>
+      </student>
+      <student id="a02" list="c003,c005, c006">
+         <first>Kevin</first>
+         <last>Yates</last>
+      </student>
+   </students>

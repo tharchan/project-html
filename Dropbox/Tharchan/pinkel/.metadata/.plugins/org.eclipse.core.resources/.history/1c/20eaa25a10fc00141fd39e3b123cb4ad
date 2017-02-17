@@ -1,0 +1,15 @@
+
+public class UserAccount {
+	private String userAccountID;
+	private String userName;
+	private String password;
+	private String email;
+	
+	private UserAccount(){
+		
+	}
+	
+	private UserAccount(String U, String P, String E){
+		
+	}
+}

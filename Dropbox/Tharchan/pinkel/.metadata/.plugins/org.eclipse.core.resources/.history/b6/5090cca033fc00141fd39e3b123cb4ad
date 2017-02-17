@@ -1,0 +1,59 @@
+import java.util.HashMap;
+
+
+public class EmployeeList {
+	private int SIZE;
+	private HashMap<String, Employee> employeeList;
+	
+	public EmployeeList(){
+		employeeList= new HashMap<String, Employee>();
+	}
+	
+	public Employee search (String ssn){
+		if(employeeList.containsKey(ssn)){
+			return employeeList.get(ssn);
+		}
+		return null;
+	}
+	
+	public boolean add(String ssn, Employee e){
+		if(!employeeList.containsKey(ssn)){
+			employeeList.put(ssn, e);
+			return true;
+		}
+		return false;
+	}
+	public boolean add(String S,String F,String L,String D,String A,String P,String E,String job) {
+		if(!employeeList.containsKey(S)){
+			Employee e = new Employee( S, F, L, D, A, P, E, job);
+			employeeList.put(S, e);
+			return true;
+		}
+		return false;
+	}
+	public boolean edit(String ssn, Employee e){
+		if(employeeList.containsKey(ssn)){
+			employeeList.get(ssn).setAddress(e.getAddress());
+			employeeList.get(ssn).setDateOfBirth(e.getDateOfBirth());
+			employeeList.get(ssn).setEmail(e.getEmail());
+			employeeList.get(ssn).setFirstName(e.getFirstName());
+			employeeList.get(ssn).setJobTitle(e.getJobTitle());
+			employeeList.get(ssn).setLastName(e.getLastName());
+			employeeList.get(ssn).setPhone(e.getPhone());
+			return true;
+		}
+		return false;		
+	}
+	public boolean edit(String S,String F,String L,String D,String A,String P,String E,String job) {
+		if(!employeeList.containsKey(S)){
+			employeeList.get(S).setAddress(A);
+			employeeList.get(S).setDateOfBirth(D);
+			employeeList.get(S).setEmail(E);
+			employeeList.get(S).setFirstName(F);
+			employeeList.get(S).setJobTitle(job);
+			employeeList.get(S).setLastName(L);
+			employeeList.get(S).setPhone(P);
+		}
+		return false;
+	}
+}

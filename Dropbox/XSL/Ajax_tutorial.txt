@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <title>Ajax - First Example</title>
+        <script type="text/javascript" language="javascript">
+            function AjaxFunction()
+            {
+                //creating a variable that makes Ajax possible
+                //this variable will be of the type XMLHttpRequest()
+                var ajaxRequest;
+                
+                //variable ajaxRequest will depend on the browser
+                //so we will use try and catch
+                try
+                {
+                   //opera, firefox, safari
+                   ajaxRequest = new XMLHttpRequest();
+                }
+                catch(e)
+                {
+                    try
+                    {
+                        //internet explorer newer versions
+                        ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                    }
+                    catch(e)
+                    {
+                        try
+                        {
+                            //internet explorer older versions
+                            ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        catch(e)
+                        {
+                            //no browser found enable to create object of type XMLHttpRequest
+                            alert("Your browser does not support Ajax");
+                            return false;
+                        }
+                    }
+                }
+                
+                //running the process at the server
+                ajaxRequest.open("GET", "Ajax_serverDate.php", true);
+                ajaxRequest.send(null);
+                
+                //creating a function that will receive data sent from the server
+                ajaxRequest.onreadystatechange = function()
+                {
+                    if (ajaxRequest.readyState == 4)
+                    {
+                        //placing the server's response into the date text box
+                        document.myForm.dateTxtBx.value = ajaxRequest.responseText;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myForm">
+            Name: <input type="text" name="nameTxtBx" onchange="AjaxFunction()"/>
+            <br/>
+            Date: <input type="text" name="dateTxtBx"/>
+        </form>
+    </body>
+</html>
+____________________________________________________________________________
+Ajax_serverDate.php
+<?php
+    print(date('m/d/y'));
+?>
+---------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Ajax_employees.html
+<html>
+    <head>
+        <title>Ajax - Example 2</title>
+        <script type="text/javascript" src="Ajax_process_employee.js"></script>
+    </head>
+    <body>
+        <h2>List of Employees</h2>
+        <form name="employeeForm">
+            Name:
+            <select name="employeeList" onchange="showEmployeeFunction()">
+                <option value="Mary Ash">Mary Ash</option>
+                <option value="John Chen">John Chen</option>
+                <option value="Gloria Mendez">Gloria Mendez</option>
+                <option value="Sandeep Khan">Sandeep Khan</option>
+            </select>
+        </form>
+        <div id="outputplace">Employee's Info will be listed here</div>
+    </body>
+</html>
+-------------------------------------------------------------------------------
+Ajax_process_employee.js
+function showEmployeeFunction()
+{
+    //creating a variable that makes Ajax possible
+    //this variable will be of the type XMLHttpRequest()
+    var ajaxRequest;
+                
+    //variable ajaxRequest will depend on the browser
+    //so we will use try and catch
+    try
+    {
+        //opera, firefox, safari
+        ajaxRequest = new XMLHttpRequest();
+    }
+    catch(e)
+    {
+        try
+        {
+            //internet explorer newer versions
+            ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch(e)
+        {
+            try
+            {
+                //internet explorer older versions
+                ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch(e)
+            {
+                //no browser found enable to create object of type XMLHttpRequest
+                alert("Your browser does not support Ajax");
+                return false;
+            }
+        }
+    }
+    
+    //getting the input(s) from the HTML form
+    var employeeName = document.employeeForm.employeeList.value;
+    
+    //running the process at the server
+    ajaxRequest.open("GET","Get_Employee_Info.php?en=" + employeeName, true);
+    ajaxRequest.send(null);
+    
+    //creating a function that will receive data from the server
+    ajaxRequest.onreadystatechange = function()
+    {
+        if (ajaxRequest.readyState == 4)
+        {
+            //display the server's response in the HTML marked placed (the one marked with the <div>)
+            document.getElementById("outputplace").innerHTML = ajaxRequest.responseText;
+        }
+    }
+}
+_______________________________________________________________________________________________
+Get_Employee_Info.php
+<?php
+    //reading the employee name passed by the javascript
+    $eName = $_GET["en"];
+    
+    if ($eName == "Mary Ash")
+    {
+        $ID = 123;
+        $title = "Manager";
+    }
+    else if ($eName == "John Chen")
+    {
+        $ID = 456;
+        $title = "IT Specialist";
+    }
+    
+    //displaying the output on a table
+    $Stringout = "<table border='1'><tr><th>ID</th><th>Name</th><th>Title</th></tr>";
+    $Stringout .= "<tr><td>$ID</td><td>$eName</td><td>$title</td></tr>";
+    $Stringout .= "</table>";
+
+    print $Stringout;
+?>
+
+
+
+
+
+
+
+

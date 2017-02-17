@@ -1,0 +1,21 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class test {
+	public static void main(String[] args){
+		try {
+			System.out.println("TEST");
+			File file = new File("Network_Printer.txt");
+			FileWriter fw = new FileWriter (file,true);
+		    
+		    PrintWriter outFile = new PrintWriter (fw);
+		    outFile.print("testiong");
+		    
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

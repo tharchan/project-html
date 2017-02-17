@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+    <?xml-stylesheet type="text/xsl" href="hw12.xsl"?>
+    <shoes>
+        <shoe>
+            <size>9</size>
+            <color>Black</color>
+            <price>56</price>
+            <qty>4</qty>
+        </shoe>
+        <shoe>
+            <size>9</size>
+            <color>Brown</color>
+            <price>54</price>
+            <qty>3</qty>
+        </shoe>
+        <shoe>
+            <size>10</size>
+            <color>Black</color>
+            <price>62</price>
+            <qty>6</qty>
+        </shoe>
+        <shoe>
+            <size>10</size>
+            <color>Brown</color>
+            <price>59</price>
+            <qty>5</qty>
+        </shoe>
+        <shoe>
+            <size>11</size>
+            <color>Black</color>
+            <price>68</price>
+            <qty>5</qty>
+        </shoe>
+        <shoe>
+            <size>11</size>
+            <color>Brown</color>
+            <price>63</price>
+            <qty>7</qty>
+        </shoe>
+    </shoes>
+    

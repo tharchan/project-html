@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--Input form so user can enter purchase amount and the state-->
+<html>
+    <head>
+        <title>Hwk3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" language="javascript">
+            function checkform()
+            {
+                //validation booleans
+                purchaseamtOK = false;
+                stateOK = false;
+                formOK = false;
+                
+                //validating the purchase amount
+                //reading the value from the text box
+                inputpurchaseamt = window.document.hwk3form.purchaseamt.value;
+                
+                if (inputpurchaseamt !="" && !isNaN(inputpurchaseamt)) purchaseamtOK = true;
+                
+                //validating the  state
+                inputstate = document.hwk3form.statelist.value;
+                if (inputstate !="" && inputstate != -1) stateOK = true;
+                
+                formOK = (purchaseamtOK) && (stateOK);
+                
+                if (formOK == true) return true;
+                else
+                {
+                    alert("Please enter valid inputs");
+                    return false;
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Calculation of Sales Amount</h2>
+        <form name="hwk3form" action="Hwk3Servlet" onsubmit="return checkform()">
+            Purchase amount: <input type="text" name="purchaseamt"/><br/>
+            State:
+            <select name="statelist">
+                <option value="">Select a State</option>
+                <option value="NY">NY</option>
+                <option value="NJ">NJ</option>
+                <option value="CT">CT</option>
+                <option value="MS">MS</option>
+            </select><br/>
+            <input type="submit" value="Calc"/>
+        </form>
+    </body>
+</html>

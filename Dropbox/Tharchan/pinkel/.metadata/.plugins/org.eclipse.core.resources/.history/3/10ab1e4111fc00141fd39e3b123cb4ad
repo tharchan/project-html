@@ -1,0 +1,41 @@
+
+public class UserAccount {
+	private String userAccountID;
+	private String userName;
+	private String password;
+	private String email;
+	
+	private UserAccount(){
+		
+	}
+	
+	private UserAccount(String U, String P, String E){
+		this.userName=U;
+		this.password=P;
+		this.email=E;
+	}
+	
+	public void setUserAccountId(String id){
+		userAccountID = id;
+	}
+	public void setUserName(String name){
+		this.userName=name;
+	}
+	public void setPassowrd(String pass){
+		this.password=pass;
+	}
+	public void setEmail(String em){
+		this.email=em;
+	}
+	
+	public String getUserAccountId(){
+		return userAccountID;
+	}
+	public String getUserName(){
+		return userName;
+	}
+	public String getPassword(){
+		return password;
+	}
+}
+

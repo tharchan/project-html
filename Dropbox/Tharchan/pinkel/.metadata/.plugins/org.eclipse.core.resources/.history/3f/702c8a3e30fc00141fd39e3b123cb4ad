@@ -1,0 +1,85 @@
+import java.util.UUID;
+
+public class UserAccount{
+	private UUID userAccountID;
+	private String username;
+	private String password;
+	private String email;
+	
+	private UserAccount(){
+	this.username="";
+	this.password="";
+	this. email="";
+	}
+	private UserAccount(String uname,String pass, String email){
+	this.username= uname;
+	this.password=pass;
+	this.email=email;
+	}
+	
+	public static UserAccount getInstance(){
+		UserAccount objAccount1= new UserAccount();
+		return objAccount1;
+	}
+	public static UserAccount getInstance( String U, String P, String E){
+		UserAccount objAccount1=new UserAccount( U,P,E);
+		return objAccount1;
+	}
+	
+	public boolean authenticate( String U, String P){		
+		if ( this.username.equals(U) && this.password.equals(P)){
+			return true;
+		}
+		return false;
+	}
+	public String getUserAccountID(){
+		return userAccountID.toString();
+	}
+	
+	public String getUsername(){
+		return username;
+	}
+	public void setusername(String uname){
+		this.username =uname;
+		
+	}	
+	public void setPassword(String pass){
+		this.password = pass;
+	}
+	
+	public String getPassword(){
+		return password;
+	}
+		
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String em){
+		this.email = em;
+	}
+	
+	public void load(String key){
+		this.database_Load(key);
+	}
+	public void insert(){
+		this.Database_Insert();
+	}
+	public void update(){
+		this.Database_Update();
+	}
+	public void delete(){
+		this.Database_Delete();
+	}
+	protected void database_Load(String key){
+		// for future implementation
+	}
+	protected void Database_Insert(){
+		// for future implementation			
+	}
+	protected void Database_Update(){
+		// for future implementation		
+	}
+	protected void Database_Delete(){
+		// for future implementation		
+	}
+}

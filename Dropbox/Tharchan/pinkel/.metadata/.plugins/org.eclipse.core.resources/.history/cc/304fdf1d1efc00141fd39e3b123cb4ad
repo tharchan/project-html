@@ -1,0 +1,15 @@
+
+public class Customer extends Person {
+	private String idNumber;
+	
+	public void setidNumber(String id){
+		this.idNumber=id;
+	}
+	
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

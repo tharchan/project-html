@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--HTML form so user provides the inputs: two numbers and math operation-->
+
+<html>
+    <head>
+        <title>Hwk4: Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" language="javascript">
+            function checkform()
+            {
+                //validation booleans
+                number1OK = false;
+                number2OK = false;
+                mathopOK = false;
+                formOK = false;
+                
+                //validating the numbers
+                inputnumber1 = document.hwk4form.number1TxtBx.value;
+                inputnumber2 = document.hwk4form.number2TxtBx.value;
+                
+                if (inputnumber1 != "" && !isNaN(inputnumber1)) number1OK = true;
+                if (inputnumber2 != "" && !isNaN(inputnumber2)) number2OK = true;
+                
+                rbarray = document.hwk4form.rb;
+                
+                if (rbarray[0].checked ||
+                     rbarray[1].checked ||
+                     rbarray[2].checked ||
+                     rbarray[3].checked) mathopOK = true;
+             
+                formOK = (number1OK) && (number2OK)&& (mathopOK);
+                
+                if (inputnumber2 == 0 && rbarray[2].checked)
+                {
+                    alert("Check your second number - can not divide a number by zero");
+                    return false;
+                }
+                
+                if (formOK == true) 
+                {
+                    //clearing the inputs
+                    inputnumber1 = "";
+                    inputnumber2 = "";
+                    
+                    return true;
+                }
+                else
+                {
+                    if (number1OK == false)
+                    {
+                        alert("Please enter a valid number 1");
+                        return false;
+                    }
+                    if (number2OK == false)
+                    {
+                        alert("Please enter a valid number 2");
+                        return false;
+                    }
+                    if (mathopOK == false)
+                    {
+                        alert("Please select a math operation");
+                        return false;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Calculator</h2>
+        <form name="hwk4form" action="Hwk4Servlet" onsubmit="return checkform()">
+            Number1: <input type="text" name="number1TxtBx"/><br/>
+            Number2: <input type="text" name="number2TxtBx"/><br/>
+            Math Operation:
+            <input type="radio" name="rb" value="sum"/>Sum 
+            <input type="radio" name="rb" value="product"/>Product 
+            <input type="radio" name="rb" value="division"/>Division 
+            <input type="radio" name="rb" value="exponentiation"/>Exponentiation<br/>
+            <input type="submit" value="Result"/>
+        </form>
+    </body>
+</html>
+

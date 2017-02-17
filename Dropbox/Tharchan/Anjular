@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+
+ <div ng-app="">
+<p>Input something in the input box:</p>
+<p>firstName : <input type="text" ng-model="name" placeholder="Enter firstname here"></p>
+<p>lastName : <input type="text" ng-model="nam" placeholder="Enter lastname here"></p>
+<p>Age : <input type="number" ng-model="name1" placeholder="Enter age here"></p>
+<p>Address : <input type="Address" ng-model="name2" placeholder="Enter Address here"></p>
+<p>contact : <input type="phone number" ng-model="name3" placeholder="Enter contact here"></p>
+<p>Male : <input type ="checkbox" ng-model="mycheck""male"> Female : <input type ="checkbox" ng-model="mycheck1" "Femal" ></p>
+<h1>Name: {{nam}} , {{name}}</h1>
+
+<h1>Age: {{name1}}</h1>
+<h1>Address: {{name2}}</h1>
+<h1>contact: {{name3}}</h1>
+<h1>Gender: {{male}}
+ <input type="" ng-model="mycheck"=" male""mycheck1">
+<p ng-bind="name"></p></h1>
+
+</div>
+
+</body>
+</html>

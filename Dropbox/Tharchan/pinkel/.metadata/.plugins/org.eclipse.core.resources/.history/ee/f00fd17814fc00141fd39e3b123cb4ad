@@ -1,0 +1,78 @@
+
+public abstract class Person {
+	private String ssNumber, firstName, lastName, dateOfBirth,address, phone, email;
+	private int age;
+	private static int count=0;
+	
+	public Person(){
+		
+	}
+	public Person(String S,String F,String L,String D,String A,String P,String E){
+		this.ssNumber=S;
+		this.firstName=F;
+		this.lastName=L;
+		this.dateOfBirth=D;
+		this.address=A;
+		this.phone=P;
+		this.email=E;
+	}
+	
+	public String getSSNumber(){
+		return ssNumber;
+	}
+	public String getFirstName(){
+		return firstName;
+	}
+	public String getLastName(){
+		return lastName;
+	}
+	public String getDateOfBirth(){
+		return dateOfBirth;
+	}
+	public int getAge(){
+		return age;
+	}
+	public String getAddress(){
+		return address;
+	}
+	public String getPhone(){
+		return phone;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public int getCount(){
+		return count;
+	}
+	
+	public void setSSNumber(String S){
+		this,ssNumber=S;
+	}
+	public void setFirstName(){
+		return firstName;
+	}
+	public void setLastName(){
+		return lastName;
+	}
+	public void setDateOfBirth(){
+		return dateOfBirth;
+	}
+	public int setAge(){
+		return age;
+	}
+	public void setAddress(){
+		return address;
+	}
+	public void setPhone(){
+		return phone;
+	}
+	public void setEmail(){
+		return email;
+	}
+	public void setCount(){
+		return count;
+	}
+		
+	
+	public abstract void print();
+}

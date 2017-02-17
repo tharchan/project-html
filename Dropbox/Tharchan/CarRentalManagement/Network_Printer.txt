@@ -1,0 +1,9 @@
+Employee information:
+First Name = Pinkel
+Last Name = Gurung
+Social Security  = 414-44-2233
+Date Of Birth = 06/03/1985
+Address = Elmhurst
+Age = 0
+Email = pinkelgrg@hotmail.com
+Title = Software

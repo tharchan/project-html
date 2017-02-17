@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hwk8: Greeting</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" language="javascript">
+            function checkform()
+            {
+                nameOK = false;
+                formOK = false;
+                
+                //reading name from form  below
+                inputname= document.Hwk8Form.nameTxtBx.value;
+                inputname = inputname.trim();
+                
+                //validation: name contains only valid characters and dashes
+                hasCharsAllowed = /[a-zA-Z]\-/;
+                hasNumber = /\d/;
+
+                if (inputname !="" 
+                        && !hasNumber.test(inputname)) nameOK = true;
+                
+                formOK = (nameOK);
+                
+                if (formOK == true) return true;
+                else 
+                {
+                    alert("Please type a valid name");
+                    //cleaning the textbox
+                    document.Hwk8Form.nameTxtBx.value = "";
+                    
+                    //set the focus to the textbox
+                    document.Hwk8Form.nameTxtBx.focus();
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="Hwk8Form" action="Hwk8ClientJSP.jsp" onsubmit="return checkform()">
+            Name: <input type="text" name="nameTxtBx"/><br/>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>

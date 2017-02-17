@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <?xml-stylesheet type="text/xsl" href= midtermb.xsl>
+    
+    <pizzas store="Ray's Pizza">
+        <common_toppings>
+            <ctopping> tomatos </ctopping>
+            <ctopping> mozzarella </ctopping>
+            <ctopping> olive oil </ctopping>
+        </common_toppings>
+            <pizza item="pizza1">
+                <name>Bomane</name>
+                <picture>mtrmBroma.jpeg</picture>
+                <toppings>
+                     <topping> anchovies </topping>
+                     <topping> dry-cured prosciutto</topping>
+                </toppings>
+                <prices>
+                    <price sixe="10">$6</price>
+                     <price sixe="12">$8</price>
+                      <price sixe="14">$10</price>
+               </prices>
+            </pizza>
+            <pizza item="pizza2">
+                <name>viennese</name>
+                <picture>mtemBviennese.jpeg</picture>
+                <toppings>
+                     <topping> anchovies </topping>
+                     <topping> dry-cured prosciutto</topping>
+                </toppings>
+                <prices>
+                    <price sixe="10">$7</price>
+                     <price sixe="12">$9</price>
+                      <price sixe="14">$11</price>
+               </prices>
+            </pizza>
+    </pizzas>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hwk9: BMI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" language="javascript">
+            function checkform()
+            {
+                feetOK = false;
+                inchesOK = false;
+                weightOK = false;
+                formOK = false;
+                
+                //validating height and inches: a option must be selected
+                inputheightfeet = document.hwk9Form.feetlist.value;
+                if (inputheightfeet == 4 || inputheightfeet == 5 
+                        || inputheightfeet == 6 || inputheightfeet == 7
+                        || inputheightfeet == 8) feetOK = true;
+                
+                alert("Feet: " + inputheightfeet);
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Hwk9: BMI</h2>
+        <form name="hwk9Form" action="Hwk9Servlet" onsubmit="return checkform()">
+            Height(Feet):
+            <select name="feetlist">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            Height(inches):
+            <select name="incheslist">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+            </select><br/>
+            Weight(lbs): <input type="text" name="weightTxtBx"/><br/>
+            <input type="submit" value="Calc"/>
+        </form>
+    </body>
+</html>

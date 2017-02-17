@@ -1,0 +1,50 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+public class Employee extends Person{
+	private String jobTitle;
+	
+	public String getJobTitle(){
+		return this.jobTitle;
+	}
+	public void setJobTitle(String job){
+		this.jobTitle=job;
+	}
+	public Employee() {
+		super();
+		this.jobTitle="";
+		super.setCount(super.getCount()+1);
+	}
+	
+	public Employee(String S,String F,String L,String D,String A,String P,String E,String job) {
+		super(S, F, L, D, A, P, E);
+		this.jobTitle=job;
+		super.setCount(super.getCount()+1);
+	}
+	
+	@Override
+	public void print() {
+		try {
+			System.out.println("TEST");
+			File file = new File("Network_Printer.txt");
+			FileWriter fw = new FileWriter (file,true);
+		    
+		    PrintWriter outFile = new PrintWriter (bw);
+		    outFile.print("testiong");
+		    
+		    //outFile.println("Employee information:");
+	//	    
+	//	    outFile.println("Employee information:");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}
